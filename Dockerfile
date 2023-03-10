@@ -1,8 +1,7 @@
 FROM  ubuntu:20.04
 MAINTAINER vikashashoke@gmail.com
 RUN apt-get update -y
-RUN apt-get install -y apache2 \
-RUN apt clean \
+RUN apt-get install -y apache2 && service apache2 start \
  zip\
  unzip
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
