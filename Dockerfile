@@ -1,8 +1,7 @@
 FROM  ubuntu:20.04
 MAINTAINER vikashashoke@gmail.com
 RUN apt-get update -y
-RUN apt-get install -y apache2 
-RUN apt-get install -y apache2-utils
+RUN apt-get install -y apache2 \
 RUN apt clean \
  zip\
  unzip
