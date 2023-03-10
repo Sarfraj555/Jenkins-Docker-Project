@@ -4,7 +4,7 @@ RUN apt-get update -y
 RUN apt-get install -y apache2 && service apache2 start \
  zip\
  unzip
-RUN DEBIAN_FRONTEND=noninteractive TZ=Asia/Kolkata apt-get -y install tzdata
+RUN DEBIAN_FRONTEND=noninteractive TZ=Indian/Kolkata apt-get -y install tzdata
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
 WORKDIR /var/www/html/
 RUN unzip photogenic.zip
