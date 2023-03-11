@@ -1,7 +1,10 @@
 FROM  centos:latest
 MAINTAINER vikashashoke@gmail.com
-RUN wget 'http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/centos-gpg-keys-8-3.el8.noarch.rpm'
-RUN sudo rpm -i 'centos-gpg-keys-8-3.el8.noarch.rpm'
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+
+RUN yum -y install java
 RUN yum install -y httpd \
  zip\
  unzip
