@@ -1,24 +1,20 @@
-FROM  ubuntu:20.04
+FROM  centos:latest
 MAINTAINER vikashashoke@gmail.com
-RUN apt-get update -y
-RUN apt-get install -y apache2 && service apache2 start \
+RUN yum install -y httpd \
  zip\
  unzip
-ARG DEBIAN_FRONTEND=noninteractive
-ENV TZ=Indian/Kolkata
-RUN apt-get install -y tzdata
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
 WORKDIR /var/www/html/
 RUN unzip photogenic.zip
 RUN cp -rvf photogenic/* .
 RUN rm -rf photogenic photogenic.zip
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 EXPOSE 80
  
  
-# FROM  ubuntu:20.04
+# FROM  centos:latest
 # MAINTAINER vikashashoke@gmail.com
-# RUN apt-get install -y httpd \
+# RUN yum install -y httpd \
 #  zip\
 #  unzip
 # ADD https://www.free-css.com/assets/files/free-css-templates/download/page265/shine.zip /var/www/html/
